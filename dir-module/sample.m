@@ -137,16 +137,16 @@ main(!IO) :-
         % count using the field access functions.
 
         ( if Basename = "README.md" then
-            !:Info = !.Info ^readme_count := readme_count(!.Info) +1
+            !:Info = !.Info ^readme_count := !.Info ^readme_count+1
         else
             true
         ),
         ( if string.suffix(Basename, ".m") then
-            !:Info = !.Info ^m_count := m_count(!.Info) +1
+            !:Info = !.Info ^m_count := !.Info ^m_count+1
         else
             true
         ),
-        !:Info = !.Info ^file_count := file_count(!.Info) +1
+        !:Info = !.Info ^file_count := !.Info ^file_count+1
     ),
 
     io.format("Walking parent folder with dir.recursive_fold2:\n", [], !IO),
