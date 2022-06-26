@@ -148,7 +148,7 @@ help_command --> ['h', 'e', 'l', 'p'].
 
     % Find a sentence matching 'is X greater than Y?'.
     % The terminating ? is required. Note we use a common parser called
-    % is_word to actually make it easier because don't forget that the
+    % a_word to actually make it easier because don't forget that the
     % input will contain whitespace in between the words as well!
     %
 :- pred greater_than(int::out, int::out, lc::in, lc::out) is semidet.
