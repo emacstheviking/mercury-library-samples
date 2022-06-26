@@ -45,4 +45,11 @@ will have command line options and/or values that you can pass to affect the
 output of the sample.
 
 
+## Refactoring Exercise
+
+The implementation of greater_than, less_than and equal_to is deliberately
+boiler plated, if you feel brave, refactor it to have common ancestry! It's
+really not that hard, I almost did it myself but then the code would not have
+been so obvious as it is to read.
+
 Thanks.
