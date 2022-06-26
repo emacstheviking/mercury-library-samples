@@ -58,3 +58,10 @@ Here's some sample input and output sessions:
 The parsing is whitespace tolerant, I've commented a lot of things here and
 there and I hope you find this as a clear and simple use of DCG notation with
 Mercury.
+
+## Refactoring Exercise
+
+The implementation of greater_than, less_than and equal_to is deliberately
+boiler plated, if you feel brave, refactor it to have common ancestry! It's
+really not that hard, I almost did it myself but then the code would not have
+been so obvious as it is to read.
