@@ -1,7 +1,7 @@
 %-----------------------------------------------------------------------------%
 %
 % File: sample.m
-% Main author: 
+% Main author: Sean Charles
 % Date: Sun Jun 26 13:41:41 2022
 %
 % DCG notation with Mercury.
