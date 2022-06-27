@@ -230,7 +230,7 @@ underline(S, !IO) :-
     io.print_line(S, !IO),
     io.print_line(
         % :string tells the compiler that we mean to use the function version
-        % of dupplicate_char, not the pred() version, which would cause the
+        % of duplicate_char, not the pred() version, which would cause the
         % compiler to get confused... do we mean the func() version or are we
         % trying print a partial application(). If you want to see for yourself
         % then remove the `:string` and try to compile the code again.
