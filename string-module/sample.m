@@ -1,7 +1,7 @@
 %-----------------------------------------------------------------------------%
 %
 % File: sample.m
-% Main author: 
+% Main author: Sean Charles
 % Date: Sun Jun 26 09:35:24 2022
 %
 % Various small samples of using the string module.
