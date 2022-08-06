@@ -1,7 +1,7 @@
 %-----------------------------------------------------------------------------%
 %
 % File: sample.m
-% Main author: 
+% Main author: Sean Charles
 % Date: Sun Jun 26 09:35:24 2022
 %
 % Various small samples of using the string module.
@@ -230,7 +230,7 @@ underline(S, !IO) :-
     io.print_line(S, !IO),
     io.print_line(
         % :string tells the compiler that we mean to use the function version
-        % of dupplicate_char, not the pred() version, which would cause the
+        % of duplicate_char, not the pred() version, which would cause the
         % compiler to get confused... do we mean the func() version or are we
         % trying print a partial application(). If you want to see for yourself
         % then remove the `:string` and try to compile the code again.
