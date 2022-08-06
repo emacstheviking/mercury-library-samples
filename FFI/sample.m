@@ -169,18 +169,17 @@ make_error(E, Why) = Out :-
     %
 :- type statinfo
     --->    statinfo(
-                si_size       :: int,
-                si_lastaccess :: date,
-                si_lastupdate :: date,
-                si_lastchange :: date
+                si_size  ::int,
+                si_atime ::date,
+                si_mtime ::date,
+                si_ctime ::date
             ).
 
-
     % Given the parts of a 'tm' structure we want to return a date
-    % calendar for a more mercury friendly final representation.
+    % calendar for a more Mercury friendly final representation.
     % We are using the 'det_' versions of the calendar functions as
     % we know the data is coming from a system call and therefore it
-    % jolly well uoght to be trustworthy in terms of values!
+    % jolly well ought to be trustworthy in terms of values.
     %
 :- func to_date(int::in, int::in, int::in, int::in, int::in, int::in)
     = (date::out) is det.
@@ -193,7 +192,7 @@ to_date(Yr, Mo, Dy, Hr, Mi, Se) = Date :-
     = (out), "toDate").
 
 
-    % Make the io.res(statinnfo) response given the values from the
+    % Make the io.res(statinfo) response given the values from the
     % stat structure for the file.
     %
 :- func make_response(int::in, date::in, date::in, date::in)
