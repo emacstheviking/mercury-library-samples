@@ -10,9 +10,9 @@
 %
 % This file starts of with filestat1(), a very simple example of how to call
 % into "C" world from Mercury, then as we progress through to filestat4() we
-% get progressively more daring by creating a more realisstic return
-% structure, finally we end up with an io.res(T) result that contains a
-% `statinfo` type we construct.
+% get progressively more daring by creating a more realistic return structure,
+% finally we end up with an io.res(T) result that contains a `statinfo` type
+% we constructed earlier.
 %
 %-----------------------------------------------------------------------------%
 :- module sample.
