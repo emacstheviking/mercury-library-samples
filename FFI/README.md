@@ -27,4 +27,4 @@ It couldn't be simpler:
 The input is the source file you wan to use as the target to the "C" function
 `stat()`. We use it to return the file-size and the three available times from
 the underlying operating system. The final version returns a fully populated
-Mercury type we defined called `statinfo.
+Mercury type we defined called `statinfo`.
