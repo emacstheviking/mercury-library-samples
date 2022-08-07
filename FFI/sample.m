@@ -73,13 +73,13 @@ main(!IO) :-
 :- pred filestat1(string::in, io::di, io::uo) is det.
 
 :- pragma foreign_proc(
-    "C", filestat1(File::in, IO0::di, IO::uo),
+    "C", filestat1(File::in, _IO0::di, _IO::uo),
     [   promise_pure
     ,   will_not_call_mercury
     ,   thread_safe
-    ,   will_not_throw_exception
     ,   will_not_modify_trail
     ,   does_not_affect_liveness
+    ,   tabled_for_io
     ],
     "
     struct stat buffer;
@@ -92,7 +92,6 @@ main(!IO) :-
     else {
         printf(""ffi:stat(%s) failed: %s\\n"", File, strerror(errno));
     }
-    IO=IO0;
     "
 ).
     % OK, the --next-- stage of development might be to be able to return a
@@ -102,20 +101,19 @@ main(!IO) :-
 :- pred filestat2(string::in, int::out, io::di, io::uo) is det.
 
 :- pragma foreign_proc(
-    "C", filestat2(File::in, Error::out, IO0::di, IO::uo),
+    "C", filestat2(File::in, Error::out, _IO0::di, _IO::uo),
     [   promise_pure
     ,   will_not_call_mercury
     ,   thread_safe
-    ,   will_not_throw_exception
     ,   will_not_modify_trail
     ,   does_not_affect_liveness
+    ,   tabled_for_io
     ],
     "
     struct stat buffer;
     int         status;
     status = stat(File, &buffer);
     if (status) Error = errno; else Error = 0;
-    IO=IO0;
     "
 ).
     % More adventurous...can we return io.error on fail?
@@ -138,13 +136,13 @@ make_error(E, Why) = Out :-
 :- pred filestat3(string::in, io.res::out, io::di, io::uo) is det.
 
 :- pragma foreign_proc(
-    "C", filestat3(File::in, Error::out, IO0::di, IO::uo),
+    "C", filestat3(File::in, Error::out, _IO0::di, _IO::uo),
     [   promise_pure
-    ,   will_not_call_mercury
     ,   thread_safe
     ,   will_not_throw_exception
     ,   will_not_modify_trail
     ,   does_not_affect_liveness
+    ,   tabled_for_io
     ],
     "
     struct stat buffer;
@@ -157,7 +155,6 @@ make_error(E, Why) = Out :-
     else {
         Error = makeError(0,"""");
     }
-    IO=IO0;
     "
 ).
     % Getting smarter with return type; this time we'll upgrade to a more
@@ -211,13 +208,13 @@ make_response(Size, ATime, MTime, CTime)
 :- pred filestat4(string::in, io.res(statinfo)::out, io::di, io::uo) is det.
 
 :- pragma foreign_proc(
-    "C", filestat4(File::in, Error::out, IO0::di, IO::uo),
+    "C", filestat4(File::in, Error::out, _IO0::di, _IO::uo),
     [   promise_pure
-    ,   will_not_call_mercury
     ,   thread_safe
     ,   will_not_throw_exception
     ,   will_not_modify_trail
     ,   does_not_affect_liveness
+    ,   tabled_for_io
     ],
     "
     struct stat buffer;
@@ -249,7 +246,6 @@ make_response(Size, ATime, MTime, CTime)
             )
         );
     }
-    IO=IO0;
     "
 ).
 
